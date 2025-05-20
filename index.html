@@ -16,6 +16,7 @@
       href="https://cdn.rawgit.com/afeld/bootstrap-toc/v1.0.1/dist/bootstrap-toc.min.css"
     />
     <link
+      id="hljs-theme"
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/default.min.css"
     />
@@ -27,18 +28,25 @@
   </head>
 
   <body data-bs-spy="scroll" data-bs-target="#toc">
-    <div class="header sticky-top">
+    <div id="header" class="header sticky-top">
       <div class="container">
         <div
           class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start"
         >
           <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-decoration-none"> 🤓 </a>
-          <span class="text-white px-4 py-1">Competitive Programming Algorithms</span>
+          <a href="/" class="text-white px-4 py-1 text-decoration-none">
+            Competitive Programming Algorithms
+          </a>
+          <button
+            id="darkModeToggle"
+            class="btn ms-auto shadow-none focus-ring-0 border-0"
+            aria-label="Toggle dark mode"
+          ></button>
         </div>
       </div>
     </div>
     <div class="container">
-      <div class="row py-5">
+      <div class="row py-4">
         <div class="d-flex justify-content-center">
           <h1>Competitive Programming Algorithms</h1>
         </div>
@@ -51,22 +59,7 @@
             Majority of the code is taken from UNSW's COMP4128 Programming Challenges.
           </p>
 
-          <div id="content">
-            <pre class="language-cpp">
-              <code>#include &lt;bits/stdc++.h&gt;
-using namespace std;
-
-typedef long long ll;
-
-int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-
-    int n;
-    cin >> n;
-}</code>
-            </pre>
-          </div>
+          <div id="content"></div>
         </div>
         <div class="col-2">
           <nav id="toc" data-toggle="toc" class="sticky-top"></nav>
@@ -93,6 +86,8 @@ int main() {
       hljs.highlightAll();
       hljs.addPlugin(new CopyButtonPlugin());
     </script>
-    <script src="script.js"></script>
+    <script src="add_content.js"></script>
+    <script src="theme_select.js"></script>
+    <script src="dark_mode.js"></script>
   </body>
 </html>

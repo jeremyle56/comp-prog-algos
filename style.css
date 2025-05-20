@@ -1,3 +1,30 @@
+body.dark-mode {
+  background-color: #1e2429;
+  color: #f1f1f1;
+}
+
+.header {
+  background-color: #7777c9;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-weight: 600;
+  font-size: 1.2rem;
+  line-height: 2.4rem;
+}
+
+.theme-icon {
+  width: 1.5rem;
+  height: 1.5rem;
+  vertical-align: middle;
+  filter: invert(100%) sepia(6%) saturate(188%) hue-rotate(236deg) brightness(115%) contrast(89%);
+}
+
+#darkModeToggle:focus,
+#darkModeToggle:focus-visible,
+#darkModeToggle:active {
+  outline: none;
+  box-shadow: none;
+}
+
 nav[data-toggle='toc'] {
   top: 69px;
 }
@@ -12,25 +39,16 @@ nav[data-toggle='toc'] {
 
   /* PICK ONE */
   /* don't expand nested items, which pushes down the rest of the page when navigating */
-  nav[data-toggle='toc'] .nav .active .nav {
+  /* nav[data-toggle='toc'] .nav .active .nav {
     display: none;
-  }
+  } */
   /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
-  /*
+
   nav[data-toggle='toc'] .nav .nav {
     display: block;
   }
-  */
 }
 
 [id] {
-  scroll-margin-top: 50px;
-}
-
-.header {
-  background-color: #7777c9;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  font-weight: 700;
-  font-size: 1.2rem;
-  line-height: 2.4rem;
+  scroll-margin-top: 60px;
 }
