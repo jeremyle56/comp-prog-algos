@@ -1,0 +1,36 @@
+nav[data-toggle='toc'] {
+  top: 69px;
+}
+
+/* small screens */
+@media (max-width: 768px) {
+  /* override stickyness so that the navigation does not follow scrolling */
+  nav[data-toggle='toc'] {
+    margin-bottom: 42px;
+    position: static;
+  }
+
+  /* PICK ONE */
+  /* don't expand nested items, which pushes down the rest of the page when navigating */
+  nav[data-toggle='toc'] .nav .active .nav {
+    display: none;
+  }
+  /* alternatively, if you *do* want the second-level navigation to be shown (as seen on this page on mobile), use this */
+  /*
+  nav[data-toggle='toc'] .nav .nav {
+    display: block;
+  }
+  */
+}
+
+[id] {
+  scroll-margin-top: 50px;
+}
+
+.header {
+  background-color: #7777c9;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 2.4rem;
+}
