@@ -79,3 +79,5 @@ _testmain.go
 #*.png
 #*.jpeg
 *.psd
+
+.vscode
