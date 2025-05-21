@@ -1,6 +1,6 @@
 const loadThemes = async () => {
   try {
-    const response = await fetch('/scripts/themes.json');
+    const response = await fetch('themes.json');
     console.log('HELLO');
     const themes = await response.json();
 

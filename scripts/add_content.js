@@ -100,7 +100,7 @@ Object.entries(code).forEach(([category, files]) => {
     fileContainer.appendChild(fileHeading);
 
     // Get file contains and place in pre code block
-    fetch(`../code/${category}/${file}.cpp`)
+    fetch(`code/${category}/${file}.cpp`)
       .then((res) => res.text())
       .then((contents) => {
         const pre = document.createElement('pre');
