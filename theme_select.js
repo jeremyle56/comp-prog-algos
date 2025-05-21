@@ -1,10 +1,6 @@
 const loadThemes = async () => {
   try {
     const response = await fetch('themes.json');
-<<<<<<< HEAD:scripts/theme_select.js
-    console.log('HELLO');
-=======
->>>>>>> parent of 052e864 (chore: move scripts to folder):theme_select.js
     const themes = await response.json();
 
     // Set saved theme on load
