@@ -1,6 +1,7 @@
 const loadThemes = async () => {
   try {
-    const response = await fetch('themes.json');
+    const response = await fetch('/scripts/themes.json');
+    console.log('HELLO');
     const themes = await response.json();
 
     // Set saved theme on load
