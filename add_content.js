@@ -6,6 +6,7 @@ const code = {
     'union_find',
     'sparse_table',
     'range_tree',
+    'range_tree_on_trees',
   ],
   dynamic_programming: ['knapsack', 'bitsets', 'travelling_sales_person'],
   graph_algorithms: [
