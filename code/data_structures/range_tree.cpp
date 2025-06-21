@@ -1,6 +1,5 @@
 const int N = 100100;
-// 2^17 = 131,072
-int tree[1 << 18];
+int tree[1 << 18];  // 2^17 = 131,072
 
 int n;
 
@@ -20,8 +19,10 @@ void update(int p, int v, int i = 1, int cL = 0, int cR = n) {
     }
 
     int mid = (cL + cR) / 2;
-    if (p < mid) update(p, v, i * 2, cL, mid);
-    else update(p, v, i * 2 + 1, mid, cR);
+    if (p < mid)
+        update(p, v, i * 2, cL, mid);
+    else
+        update(p, v, i * 2 + 1, mid, cR);
     tree[i] = tree[i * 2] + tree[i * 2 + 1];
 }
 

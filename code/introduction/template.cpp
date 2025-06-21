@@ -2,6 +2,7 @@
 using namespace std;
 
 typedef long long ll;
+const int N = 100010;
 
 int main() {
     ios::sync_with_stdio(false);
