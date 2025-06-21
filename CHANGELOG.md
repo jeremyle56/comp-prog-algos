@@ -1,1 +1,3 @@
-May 21, 2025: Site is live!
+- May 21, 2025: Site is live!
+- May 23, 2025: Modify Dijkstra to use `long long`, add `MOD` to Fast Exponentiation
+- May 26, 2025: Add alternative to bitset
