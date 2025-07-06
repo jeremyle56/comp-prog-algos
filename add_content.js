@@ -19,6 +19,7 @@ const code = {
     `kosaraju's_algorithm`,
     'topological_sort',
     'compute_SCC_DAG',
+    '2-SAT',
     `kruskal's_algorithm`,
     `prim's_algorithm`,
     `shortest_path_algorithms/dijkstra's_algorithm`,
@@ -57,8 +58,8 @@ const code = {
  */
 const titleCase = (s) =>
   s
-    .replace(/^[-_]*(.)/, (_, c) => c.toUpperCase())
-    .replace(/[-_]+(.)/g, (_, c) => ' ' + c.toUpperCase());
+    .replace(/^[_]*(.)/, (_, c) => c.toUpperCase())
+    .replace(/[_]+(.)/g, (_, c) => ' ' + c.toUpperCase());
 
 // Where all the content will go
 const contentDiv = document.getElementById('content');

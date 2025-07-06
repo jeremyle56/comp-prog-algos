@@ -1,5 +1,5 @@
 vector<int> edges[N];
-int preorder[N];
+int preorder[N];  // initialise to -1
 int T = 0;
 int reach[N];
 vector<pair<int, int>> bridges;
