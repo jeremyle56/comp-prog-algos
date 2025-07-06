@@ -19,7 +19,7 @@ const code = {
     `kosaraju's_algorithm`,
     'topological_sort',
     'compute_SCC_DAG',
-    '2-SAT',
+    '(Two)_2-SAT',
     `kruskal's_algorithm`,
     `prim's_algorithm`,
     `shortest_path_algorithms/dijkstra's_algorithm`,
