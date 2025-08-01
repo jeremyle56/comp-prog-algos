@@ -14,8 +14,8 @@ int tsp(void) {
             if (mask & (1 << cur)) {       // cur must be one of the cities seen so far
                 int cdp = dp[mask][cur];   // distance travelled so far
                 if (mask == (1 << n) - 1)  // seen all cities, return to 0
-                    // unlike the traditional TSP, we don't have to add adj[cur][0] to account for
-                    // an edge back to vertex 0
+                    // unlike the traditional TSP, we don't have to add adj[cur][0]
+                    // to account for an edge back to vertex 0
                     ans = min(ans, cdp);
                 for (int nxt = 0; nxt < n; nxt++)
                     if (!(mask & (1 << nxt)))  // try going to a new city

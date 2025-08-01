@@ -1,0 +1,1 @@
+for i in {B..L}.cpp; do cp "A.cpp" "$i"; done

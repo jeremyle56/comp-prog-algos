@@ -2,11 +2,9 @@
 using namespace std;
 
 typedef long long ll;
-const int N = 100010;
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(0)->sync_with_stdio(0);
 
     int n;
     cin >> n;

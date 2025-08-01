@@ -2,7 +2,6 @@
 using namespace std;
 
 typedef long long ll;
-const int N = 100010;
 
 /* ============================================ */
 
@@ -14,8 +13,7 @@ void solve() {
 /* ============================================ */
 
 int main() {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
+    cin.tie(0)->sync_with_stdio(0);
 
     int t = 1;
     cin >> t;

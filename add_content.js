@@ -1,5 +1,11 @@
 const code = {
-  introduction: ['template', 'codeforces_template', 'binary_search', 'coordinate_compression'],
+  miscellaneous: [
+    'template',
+    'codeforces_template',
+    'binary_search',
+    'base_10_to_base_m',
+    'coordinate_compression',
+  ],
   data_structures: [
     'order_statistic_tree_(Set)',
     'order_statistic_tree_(Map)',
@@ -34,6 +40,7 @@ const code = {
     'prime_factorization',
     'sieve_of_eratosthenes',
     'GCD',
+    'LCM',
     'extended_euclidean_algorithm',
     'matrices',
     'combinations',

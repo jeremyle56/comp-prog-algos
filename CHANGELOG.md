@@ -3,4 +3,5 @@
 - May 26, 2025: Add alternative to bitset
 - June 9, 2025: Add `const int N` to template files.
 - June 21, 2025: Add Range Tree on Trees.
-- July 6, 2025: Add comment to bridge finding, add 2-SAT solver
+- July 6, 2025: Add comment to bridge finding, add 2-SAT solver.
+- August 1, 2025: Add `cheatsheet.pdf` for print out version.
