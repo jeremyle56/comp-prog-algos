@@ -1,12 +1,5 @@
-int euclidean_algorithm(int a, int b, int& x, int& y) {
-    if (a == 0) {
-        x = 0;
-        y = 1;
-        return b;
-    }
-    int x1, y1;
-    int d = euclidean_algorithm(b % a, a, x1, y1);
-    x = y1 - (b / a) * x1;
-    y = x1;
-    return d;
+ll euclid(ll a, ll b, ll &x, ll &y) {
+    if (!b) return x = 1, y = 0, a;
+    ll d = euclid(b, a % b, y, x);
+    return y -= a / b * x, d;
 }

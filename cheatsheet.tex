@@ -68,20 +68,41 @@
 
 \maketitle
 \tableofcontents
-\pagebreak
-
-% Introduction and Miscellaneous
-\section{Introduction and Miscellaneous}
 
 \begin{center}
     \includegraphics[scale=0.65]{assets/table.png}
 \end{center}
 
+\begin{center}
+    \begin{tabular}{l}
+        \begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+            $n$  & 1 & 2 & 3 & 4  & 5   & 6   & 7    & 8     & 9      & 10      \\
+            \hline
+            $n!$ & 1 & 2 & 6 & 24 & 120 & 720 & 5040 & 40320 & 362880 & 3628800 \\
+        \end{tabular} \\
+        \begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+            $n$  & 11    & 12    & 13    & 14     & 15     & 16     & 17     \\
+            \hline
+            $n!$ & 4.0e7 & 4.8e8 & 6.2e9 & 8.7e10 & 1.3e12 & 2.1e13 & 3.6e14 \\
+        \end{tabular} \\
+        \begin{tabular}{c|c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c@{\ }c}
+            $n$  & 20   & 25   & 30   & 40   & 50   & 100   & 150   & 171                      \\
+            \hline
+            $n!$ & 2e18 & 2e25 & 3e32 & 8e47 & 3e64 & 9e157 & 6e262 & \scriptsize{$>$DBL\_MAX} \\
+        \end{tabular}
+    \end{tabular}
+\end{center}
+
+\pagebreak
+
+% Introduction and Miscellaneous
+\section{Introduction and Miscellaneous}
+
 \subsection{Template}
 \lstinputlisting{code/miscellaneous/template.cpp}
 
-\subsection{Codeforces Template}
-\lstinputlisting{code/miscellaneous/codeforces_template.cpp}
+\subsection{.bashrc}
+\lstinputlisting[language=Bash]{code/miscellaneous/.bashrc}
 
 \subsection{Generate Files}
 \lstinputlisting[language=Bash]{code/miscellaneous/generate_files.sh}
@@ -110,11 +131,11 @@
 \subsection{Sparse Table}
 \lstinputlisting{code/data_structures/sparse_table.cpp}
 
-\subsection{Range Tree}
-\lstinputlisting{code/data_structures/range_tree.cpp}
+\subsection{Segment Tree}
+\lstinputlisting{code/data_structures/segment_tree.cpp}
 
-\subsection{Range Tree on Trees}
-\lstinputlisting{code/data_structures/range_tree_on_trees.cpp}
+\subsection{Segment Tree on Trees}
+\lstinputlisting{code/data_structures/segment_tree_on_trees.cpp}
 
 % Dynamic Programming
 \section{Dynamic Programming}
@@ -149,8 +170,11 @@
 \subsection{Binary Lifting}
 \lstinputlisting{code/graph_algorithms/binary_lifting.cpp}
 
-\subsection{Kosaraju's Algorithm}
-\lstinputlisting{code/graph_algorithms/kosaraju's_algorithm.cpp}
+\subsection{SCC's}
+\lstinputlisting{code/graph_algorithms/scc.cpp}
+
+% \subsection{Kosaraju's Algorithm}
+% \lstinputlisting{code/graph_algorithms/kosaraju's_algorithm.cpp}
 
 \subsection{Topological Sort}
 \lstinputlisting{code/graph_algorithms/topological_sort.cpp}
@@ -195,11 +219,14 @@
 \subsection{Fast Exponentiation}
 \lstinputlisting{code/mathematics/fast_exponentiation.cpp}
 
-\subsection{Primality Testing}
-\lstinputlisting{code/mathematics/primality_testing.cpp}
+\subsection{Mod Multiplication}
+\lstinputlisting{code/mathematics/mod_multiplication.cpp}
+
+\subsection{Miller Rabin - Primality Testing}
+\lstinputlisting{code/mathematics/miller_rabin.cpp}
 
 \subsection{Prime Factorisation}
-\lstinputlisting{code/mathematics/prime_factorization.cpp}
+\lstinputlisting{code/mathematics/factor.cpp}
 
 \subsection{Sieve of Eratosthenes}
 \lstinputlisting{code/mathematics/sieve_of_eratosthenes.cpp}
@@ -212,6 +239,12 @@
 
 \subsection{Extended Euclidean Algorithm}
 \lstinputlisting{code/mathematics/extended_euclidean_algorithm.cpp}
+
+\subsection{Chinese Remainder Theorem}
+\lstinputlisting{code/mathematics/chinese_remainder_theorem.cpp}
+
+\subsection{Euler's Totient Function}
+\lstinputlisting{code/mathematics/euler_totient.cpp}
 
 \subsection{Matrices}
 \lstinputlisting{code/mathematics/matrices.cpp}

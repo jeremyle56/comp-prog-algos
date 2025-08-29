@@ -1,11 +1,8 @@
-const int MOD = 1e9 + 7;
-typedef long long ll;
+const ll mod = 1000000007;
 
-ll modpow(ll x, ll n, int m) {
-    if (n == 0) return 1;
-
-    ll a = modpow(x, n / 2, m);
-    a = a * a % m;
-    if (n % 2 == 1) a = a * x % m;
-    return a;
+ll modpow(ll b, ll e) {
+    ll ans = 1;
+    for (; e; b = b * b % MOD, e /= 2)
+        if (e & 1) ans = ans * b % mod;
+    return ans;
 }

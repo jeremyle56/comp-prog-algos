@@ -4,4 +4,5 @@
 using namespace __gnu_pbds;
 using namespace std;
 
-typedef tree<int, char, less<int>, rb_tree_tag, tree_order_statistics_node_update> ordered_map;
+template<class T, class E>
+using OST = tree<T, E, less<int>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;

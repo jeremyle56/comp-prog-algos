@@ -1,83 +1,48 @@
-typedef long long ll;
+struct Dinic {
+    struct Edge {
+        int to, rev;
+        ll c, oc;
+        Edge(int to, int rev, ll c, ll oc) : to(to), rev(rev), c(c), oc(oc) {}
+        ll flow() { return max(oc - c, 0LL); }  // if you need flows
+    };
+    vector<int> lvl, ptr, q;
+    vector<vector<Edge>> adj;
 
-const int INF = 1e9 + 7;
+    Dinic(int n) : lvl(n), ptr(n), q(n), adj(n) {}
 
-struct FlowNetwork {
-    int n;
-    vector<vector<ll>> adjMat, adjList;
-    // level[v] stores dist from s to v
-    // uptochild[v] stores first non-useless child.
-    vector<int> level, uptochild;
-
-    FlowNetwork(int _n) : n(_n) {
-        // adjacency matrix is zero-initialised
-        adjMat.resize(n);
-        for (int i = 0; i < n; i++) adjMat[i].resize(n);
-        adjList.resize(n);
-        level.resize(n);
-        uptochild.resize(n);
+    void addEdge(int a, int b, ll c, ll rcap = 0) {
+        adj[a].push_back({b, adj[b].size(), c, c});
+        adj[b].push_back({a, adj[a].size() - 1, rcap, rcap});
     }
 
-    void add_edge(int u, int v, ll c) {
-        // add to any existing edge without overwriting
-        adjMat[u][v] += c;
-        adjList[u].push_back(v);
-        adjList[v].push_back(u);
-    }
-
-    void flow_edge(int u, int v, ll c) {
-        adjMat[u][v] -= c;
-        adjMat[v][u] += c;
-    }
-
-    // constructs the level graph and returns whether the sink is still reachable
-    bool bfs(int s, int t) {
-        fill(level.begin(), level.end(), -1);
-        queue<int> q;
-        q.push(s);
-        level[s] = 0;
-        while (!q.empty()) {
-            int u = q.front();
-            q.pop();
-            uptochild[u] = 0;  // reset uptochild
-            for (int v : adjList[u])
-                if (adjMat[u][v] > 0) {
-                    if (level[v] != -1)  // already seen
-                        continue;
-                    level[v] = level[u] + 1;
-                    q.push(v);
+    ll dfs(int v, int t, ll f) {
+        if (v == t || !f) return f;
+        for (int& i = ptr[v]; i < adj[v].size(); i++) {
+            Edge& e = adj[v][i];
+            if (lvl[e.to] == lvl[v] + 1)
+                if (ll p = dfs(e.to, t, min(f, e.c))) {
+                    e.c -= p, adj[e.to][e.rev].c += p;
+                    return p;
                 }
         }
-        return level[t] != -1;
-    }
-
-    // finds an augmenting path with up to f flow.
-    ll augment(int u, int t, ll f) {
-        if (u == t) return f;  // base case.
-        // note the reference here! we increment uptochild[u], i.e. walk through u's neighbours
-        // until we find a child that we can flow through
-        for (int& i = uptochild[u]; i < adjList[u].size(); i++) {
-            int v = adjList[u][i];
-            if (adjMat[u][v] > 0) {
-                // ignore edges not in the BFS tree.
-                if (level[v] != level[u] + 1) continue;
-                // revised flow is constrained also by this edge
-                ll rf = augment(v, t, min(f, adjMat[u][v]));
-                // found a child we can flow through!
-                if (rf > 0) {
-                    flow_edge(u, v, rf);
-                    return rf;
-                }
-            }
-        }
-        level[u] = -1;
         return 0;
     }
 
-    ll dinic(int s, int t) {
-        ll res = 0;
-        while (bfs(s, t))
-            for (ll x = augment(s, t, INF); x; x = augment(s, t, INF)) res += x;
-        return res;
+    ll calc(int s, int t) {
+        ll flow = 0;
+        q[0] = s;
+        for (int L = 0; L < 31; ++L) do {  // 'int L=30' maybe faster for random data
+                lvl = ptr = vector<int>(q.size());
+                int qi = 0, qe = lvl[s] = 1;
+                while (qi < qe && !lvl[t]) {
+                    int v = q[qi++];
+                    for (Edge e : adj[v])
+                        if (!lvl[e.to] && e.c >> (30 - L)) q[qe++] = e.to, lvl[e.to] = lvl[v] + 1;
+                }
+                while (ll p = dfs(s, t, LLONG_MAX)) flow += p;
+            } while (lvl[t]);
+        return flow;
     }
+
+    bool leftOfMinCut(int a) { return lvl[a] != 0; }
 };

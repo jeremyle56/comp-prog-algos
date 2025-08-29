@@ -1,10 +1,26 @@
-for (int u = 0; u < n; ++u)
-    for (int v = 0; v < n; ++v) dist[u][v] = INF;
+const ll INF = 1LL << 62;
 
-for (edge e : edges) dist[e.u][e.v] = e.w;
+void floydWarshall(vector<vector<ll>>& m) {
+    int n = m.size();
+    for (int i = 0; i < n; ++i) m[i][i] = min(m[i][i], 0LL);
+    for (int k = 0; k < n; ++k) {
+        for (int i = 0; i < n; ++i) {
+            for (int j = 0; j < n; ++j) {
+                if (m[i][k] != INF && m[k][j] != INF) {
+                    auto newDist = max(m[i][k] + m[k][j], -INF);
+                    m[i][j] = min(m[i][j], newDist);
+                }
+            }
+        }
+    }
 
-for (int u = 0; u < n; ++u) dist[u][u] = 0;
-
-for (int i = 0; i < n; i++)
-    for (int u = 0; u < n; u++)
-        for (int v = 0; v < n; v++) dist[u][v] = min(dist[u][v], dist[u][i] + dist[i][v]);
+    for (int k = 0; k < n; ++k) {
+        if (m[k][k] < 0) {
+            for (int i = 0; i < n; ++i) {
+                for (int j = 0; j < n; ++j) {
+                    if (m[i][k] != INF && m[k][j] != INF) m[i][j] = -INF;
+                }
+            }
+        }
+    }
+}

@@ -1,16 +1,19 @@
-set<int> dag[N];  // edges
-bool seen_dag[N];
+vector<int> topSort(const vector<vector<int>>& g) {
+    vector<int> indeg(g.size()), q;
 
-void compute_topsort(int u, vector<int>& postorder) {
-    if (seen_dag[u]) return;
-    seen_dag[u] = true;
-    for (int v : dag[u]) compute_topsort(v, postorder);
-    postorder.push_back(u);
-}
+    for (auto& li : g) {
+        for (int x : li) ++indeg[x];
+    }
 
-vector<int> topsort() {
-    vector<int> res;
-    for (int i = 0; i < nsccs; i++) compute_topsort(i, res);
-    reverse(res.begin(), res.end());
-    return res;
+    for (int i = 0; i < g.size(); ++i) {
+        if (indeg[i] == 0) q.push_back(i);
+    }
+
+    for (int j = 0; j < q.size(); ++j) {
+        for (int x : g[q[j]]) {
+            if (--indeg[x] == 0) q.push_back(x);
+        }
+    }
+
+    return q;
 }

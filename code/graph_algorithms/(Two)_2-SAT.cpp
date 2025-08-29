@@ -64,4 +64,15 @@ struct TwoSatSolver {
         adj_t[b].push_back(neg_a);
         adj_t[a].push_back(neg_b);
     }
+
+    static void example_usage() {
+        TwoSatSolver solver(3);                      // a, b, c
+        solver.add_disjunction(0, false, 1, true);   //     a  v  not b
+        solver.add_disjunction(0, true, 1, true);    // not a  v  not b
+        solver.add_disjunction(1, false, 2, false);  //     b  v      c
+        solver.add_disjunction(0, false, 0, false);  //     a  v      a
+        assert(solver.solve_2SAT() == true);
+        auto expected = vector<bool>(True, False, True);
+        assert(solver.assignment == expected);
+    }
 };

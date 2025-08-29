@@ -5,3 +5,4 @@
 - June 21, 2025: Add Range Tree on Trees.
 - July 6, 2025: Add comment to bridge finding, add 2-SAT solver.
 - August 1, 2025: Add `cheatsheet.pdf` for print out version.
+- August 30, 2025: Partial revamp of many implementations

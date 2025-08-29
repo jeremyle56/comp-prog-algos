@@ -1,16 +1,26 @@
-bool marked[N + 1];
-vector<int> primefactorization[N + 1];
+const int LIM = 1e6;
+bitset<LIM> isPrime;
 
-for (int i = 2; i <= N; i++) {
-    if (!marked[i]) {
-        primefactorization[i].push_back(i);
-        for (int j = 2 * i; j <= N; j += i) {
-            marked[j] = true;
-            int tmp = j;
-            while (tmp % i == 0) {
-                primefactorization[j].push_back(i);
-                tmp /= i;
-            }
+vector<int> sieve() {
+    const int S = (int)round(sqrt(LIM)), R = LIM / 2;
+    vector<int> pr = {2}, sieve(S + 1);
+    pr.reserve(int(LIM / log(LIM) * 1.1));
+    vector<pair<int, int>> cp;
+
+    for (int i = 3; i <= S; i += 2)
+        if (!sieve[i]) {
+            cp.push_back({i, i * i / 2});
+            for (int j = i * i; j <= S; j += 2 * i) sieve[j] = 1;
         }
+
+    for (int L = 1; L <= R; L += S) {
+        array<bool, S> block{};
+        for (auto &[p, idx] : cp)
+            for (int i = indx; i < S + L; idx = (i += p)) block[i - L] = 1;
+        for (int i = 0; i < min(S, R - L); ++i)
+            if (!block[i]) pr.push_back((L + i) * 2 + 1);
     }
+
+    for (int i : pr) isPrime[i] = 1;
+    return pr;
 }
